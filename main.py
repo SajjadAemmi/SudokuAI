@@ -1,11 +1,15 @@
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+from PySide2.QtUiTools import QUiLoader
 import sys
 import random
 import time
 import threading
 import data
+import os
+
+os.environ["QT_MAC_WANTS_LAYER"] = "1"
 
 
 class SolveSudoku(threading.Thread):
@@ -120,7 +124,6 @@ class SolveSudoku(threading.Thread):
         time.sleep(self.delay)
 
     def Sudoku(self):
-
         if p.run:
             try:
                 flag, row, col = self.Heuristic()
@@ -149,120 +152,35 @@ class SolveSudoku(threading.Thread):
 
         return True
     
-class Program(QWidget):
+class Program(QMainWindow):
 
     def __init__(self):
-        super().__init__()
+        super(Program, self).__init__()
+        
         self.matrix = list()
-        self.setGeometry(200, 200, 500, 500)
-        self.setWindowTitle('Sudoku')
-        self.createUI()
+
+        loader = QUiLoader()
+        self.ui = loader.load('main.ui')
+
+        self.board = [[None for _ in range(9)] for _ in range(9)]
+
+        for i in range(9):
+            for j in range(9):
+                self.board[i][j] =  getattr(self.ui, f'tb_{i}{j}')
+
+        self.ui.menu_new_game.triggered.connect(self.newGame)
+        self.ui.menu_open.triggered.connect(self.openFile)
+        self.ui.menu_exit.triggered.connect(exit)
+        self.ui.menu_help_game.triggered.connect(self.help)
+        self.ui.menu_about.triggered.connect(self.about)
+
+        self.ui.btn_check.clicked.connect(self.check)
+        self.ui.btn_new_game.clicked.connect(self.newGame)
+        self.ui.btn_solve.clicked.connect(self.solve)
+        self.ui.btn_stop.clicked.connect(self.stop)
+
         self.newGame()
-        self.show()
-
-    def createUI(self):
-        vLayout = QVBoxLayout(self)
-
-        #region Menu
-        mainMenu = QMenuBar(self)
-        vLayout.addWidget(mainMenu)
-
-        fileMenu = mainMenu.addMenu('File')
-        helpMenu = mainMenu.addMenu('Help')
-
-        menu_btn_new_game = QAction('New Game', self)
-        menu_btn_new_game.triggered.connect(self.newGame)
-        fileMenu.addAction(menu_btn_new_game)
-
-        menu_btn_open_file = QAction('Open File', self)
-        menu_btn_open_file.triggered.connect(self.openFile)
-        fileMenu.addAction(menu_btn_open_file)
-
-        menu_btn_exit = QAction('Exit', self)
-        menu_btn_exit.triggered.connect(self.close)
-        fileMenu.addAction(menu_btn_exit)
-
-        menu_btn_help = QAction('Help', self)
-        menu_btn_help.triggered.connect(self.help)
-        helpMenu.addAction(menu_btn_help)
-
-        menu_btn_about = QAction('About', self)
-        menu_btn_about.triggered.connect(self.about)
-        helpMenu.addAction(menu_btn_about)
-        # endregion
-
-        #region Board
-        gLayout = QGridLayout()
-        gLayout.setSpacing(0)
-        vLayout.addLayout(gLayout)
-        myfont = QFont('Arial', 20)
-
-        self.parts = [[QGroupBox() for _ in range(3)] for _ in range(3)]
-
-        for i in range(3):
-            for j in range(3):
-                self.parts[i][j].setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-                self.parts[i][j].setStyleSheet("QGroupBox::title { "
-                                               "border: 0px ; "
-                                               "border-radius: 0px; "
-                                               "padding: 0px 0px 0px 0px; "
-                                               "margin = 0px 0px 0px 0px } "
-                                               "QGroupBox { "
-                                               "margin = 0px 0px 0px 0px; "
-                                               "border: 0px ; "
-                                               "border-radius: 0px; "
-                                               "padding: 0px 0px 0px 0px;} ")
-                gLayout.addWidget(self.parts[i][j], i, j)
-
-        self.board = [[QLineEdit() for _ in range(9)] for _ in range(9)]
-
-        for row in range(3):
-            for col in range(3):
-                gLayout = QGridLayout()
-                self.parts[row][col].setLayout(gLayout)
-
-                for i in range(row * 3, row * 3 + 3):
-                    for j in range(col * 3, col * 3 + 3):
-                        self.board[i][j].setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-                        self.board[i][j].setAlignment(Qt.AlignCenter)
-                        self.board[i][j].setFont(myfont)
-
-                        gLayout.addWidget(self.board[i][j], i, j)
-        # endregion
-
-        # region Buttons
-        btn_group = QGroupBox()
-        btn_group.setStyleSheet("QGroupBox::title { "
-                                "border: 0px ; "
-                                "border-radius: 0px; "
-                                "padding: 0px 0px 0px 0px; "
-                                "margin = 0px 0px 0px 0px } "
-                                "QGroupBox { "
-                                "margin = 0px 0px 0px 0px; "
-                                "border: 0px ; "
-                                "border-radius: 0px; "
-                                "padding: 0px 0px 0px 0px;} ")
-
-        vLayout.addWidget(btn_group)
-        hLayout = QHBoxLayout()
-        btn_group.setLayout(hLayout)
-
-        btn_check = QPushButton('Check')
-        btn_check.clicked.connect(self.check)
-        hLayout.addWidget(btn_check)
-
-        btn_new_game = QPushButton('New Game')
-        btn_new_game.clicked.connect(self.newGame)
-        hLayout.addWidget(btn_new_game)
-
-        btn_solve = QPushButton('Solve')
-        btn_solve.clicked.connect(self.solve)
-        hLayout.addWidget(btn_solve)
-
-        btn_stop = QPushButton('Stop')
-        btn_stop.clicked.connect(self.stop)
-        hLayout.addWidget(btn_stop)
-        # endregion
+        self.ui.show()
 
     def stop(self):
         self.run = False
@@ -305,7 +223,7 @@ class Program(QWidget):
     def about(self):
         msgbox = QMessageBox()
         msgbox.setWindowTitle('About')
-        msgbox.setText('Sudoku v3.0\n\n'
+        msgbox.setText('Sudoku v3.1\n\n'
                        'Programmer: Sajjad Aemmi\n'
                        'Email: sajjadaemmi@gmail.com')
         msgbox.exec_()
