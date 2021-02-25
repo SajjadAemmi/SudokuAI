@@ -24,11 +24,13 @@ class SolveSudoku(threading.Thread):
         self.degreeCalculation()
         if self.Sudoku():
             print("Done!")
+            p.matrix = self.matrix
+            p.updateBoard()
+            p.ui.progress_bar.setVisible(False)
         else:
             print("No solution exists")
 
     def degreeCalculation(self):
-
         for i in range(9):
             for j in range(9):
                 cntr = 0
@@ -41,11 +43,8 @@ class SolveSudoku(threading.Thread):
                         for m in range((j // 3) * 3, ((j // 3) * 3) + 3):
                             if self.matrix[k][m] == 0 and k != i and m != j:
                                 cntr += 1
-                    node = dict()
-                    node['degree'] = cntr
-                    node['row'] = i
-                    node['col'] = j
-                    node['isset'] = 0
+                    
+                    node = {'degree':cntr, 'row':i, 'col':j, 'isset':0}
                     self.DH.append(node)
 
         self.DH = sorted(self.DH, key=lambda k: k['degree'])
@@ -66,8 +65,7 @@ class SolveSudoku(threading.Thread):
         return True
 
     def isSafe(self, row, col, num):
-        return not self.usedInRow(row, num) and \
-               not self.usedInCol(col, num) and \
+        return not self.usedInRow(row, num) and not self.usedInCol(col, num) and \
                not self.usedInBox(row - row % 3, col - col % 3, num)
 
     def Heuristic(self):
@@ -80,7 +78,6 @@ class SolveSudoku(threading.Thread):
 
     def Set(self, row, col):
         this = next(item for item in self.DH if row == item['row'] and col == item['col'])
-
         this['isset'] = 1
 
         for node in self.DH:
@@ -92,7 +89,6 @@ class SolveSudoku(threading.Thread):
 
     def UnSet(self, row, col):
         this = next(item for item in self.DH if row == item['row'] and col == item['col'])
-
         this['isset'] = 0
 
         for node in self.DH:
@@ -103,23 +99,17 @@ class SolveSudoku(threading.Thread):
         self.DH = sorted(self.DH, key=lambda k: k['degree'])
 
     def Show(self, row, col, num):
-
         time.sleep(self.delay)
         if self.old_row != None and self.old_col != None:
             p.board[self.old_row][self.old_col].setStyleSheet('none')
 
-        time.sleep(self.delay)
         self.old_row, self.old_col = row, col
-        time.sleep(self.delay)
         p.board[row][col].setText(str(num))
-        time.sleep(self.delay)
         p.board[row][col].setStyleSheet("background-color: lightblue")
         time.sleep(self.delay)
 
     def Hide(self, row, col):
-        time.sleep(self.delay)
         p.board[row][col].setStyleSheet('none')
-        time.sleep(self.delay)
         p.board[row][col].setText('')
         time.sleep(self.delay)
 
@@ -136,14 +126,16 @@ class SolveSudoku(threading.Thread):
 
                         self.Set(row, col)
                         self.matrix[row][col] = num
-                        self.Show(row, col, num)
+                        if p.preview:
+                            self.Show(row, col, num)
 
                         if self.Sudoku():
                             return True
 
                         self.UnSet(row, col)
                         self.matrix[row][col] = 0
-                        self.Hide(row, col)
+                        if p.preview:
+                            self.Hide(row, col)
 
                 return False
 
@@ -151,7 +143,8 @@ class SolveSudoku(threading.Thread):
                 print('some problem')
 
         return True
-    
+
+
 class Program(QMainWindow):
 
     def __init__(self):
@@ -163,10 +156,12 @@ class Program(QMainWindow):
         self.ui = loader.load('main.ui')
 
         self.board = [[None for _ in range(9)] for _ in range(9)]
+        self.preview = False
+        self.ui.progress_bar.setVisible(False)
 
         for i in range(9):
             for j in range(9):
-                self.board[i][j] =  getattr(self.ui, f'tb_{i}{j}')
+                self.board[i][j] = getattr(self.ui, f'tb_{i}{j}')
 
         self.ui.menu_new_game.triggered.connect(self.newGame)
         self.ui.menu_open.triggered.connect(self.openFile)
@@ -178,9 +173,13 @@ class Program(QMainWindow):
         self.ui.btn_new_game.clicked.connect(self.newGame)
         self.ui.btn_solve.clicked.connect(self.solve)
         self.ui.btn_stop.clicked.connect(self.stop)
+        self.ui.cb_preview.clicked.connect(self.setPreview)
 
         self.newGame()
         self.ui.show()
+
+    def setPreview(self):
+        self.preview = not self.preview
 
     def stop(self):
         self.run = False
@@ -240,14 +239,15 @@ class Program(QMainWindow):
     def solve(self):
         m = [[int(item) for item in row] for row in self.matrix]
         self.run = True
+        self.ui.progress_bar.setVisible(True)
         self.solveSudoku = SolveSudoku(m)
         self.solveSudoku.start()
 
     def updateBoard(self):
         for i in range(9):
             for j in range(9):
-                if self.matrix[i][j] != '0':
-                    self.board[i][j].setText(self.matrix[i][j])
+                if str(self.matrix[i][j]) != '0':
+                    self.board[i][j].setText(str(self.matrix[i][j]))
                     self.board[i][j].setStyleSheet('background-color: lightgray')
                     self.board[i][j].setReadOnly(True)
                 else:
