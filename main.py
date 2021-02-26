@@ -101,7 +101,7 @@ class SolveSudoku(threading.Thread):
     def Show(self, row, col, num):
         time.sleep(self.delay)
         if self.old_row != None and self.old_col != None:
-            p.board[self.old_row][self.old_col].setStyleSheet('none')
+            p.board[self.old_row][self.old_col].setStyleSheet('background-color: lightgreen')
 
         self.old_row, self.old_col = row, col
         p.board[row][col].setText(str(num))
@@ -153,7 +153,7 @@ class Program(QMainWindow):
         self.matrix = list()
 
         loader = QUiLoader()
-        self.ui = loader.load('main.ui')
+        self.ui = loader.load('mainwindow.ui')
 
         self.board = [[None for _ in range(9)] for _ in range(9)]
         self.preview = False
