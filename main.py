@@ -153,7 +153,7 @@ class Program(QMainWindow):
         self.matrix = list()
 
         loader = QUiLoader()
-        self.ui = loader.load('main.ui')
+        self.ui = loader.load('mainwindow.ui')
 
         self.board = [[None for _ in range(9)] for _ in range(9)]
         self.preview = False
