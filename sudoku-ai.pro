@@ -23,15 +23,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
-CONFIG += c++11
+CONFIG += \
+        c++17
 
-HEADERS += mainwindow.h
+HEADERS += \
+        mainwindow.h \
+        sudoku.h
 
 SOURCES += \
+        mainwindow.cpp \
+        sudoku.cpp \
         main.cpp
 
 FORMS += \
         mainwindow.ui
+
+RESOURCES += \
+        data/s6.txt \
+        data/s4.txt \
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

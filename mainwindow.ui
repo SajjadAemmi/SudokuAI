@@ -80,6 +80,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -98,6 +101,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -118,6 +124,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -136,6 +145,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -156,6 +168,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -174,6 +189,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -194,6 +212,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -213,6 +234,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -231,6 +255,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -287,6 +314,9 @@
            <property name="text">
             <string/>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -305,6 +335,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -325,6 +358,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -343,6 +379,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -363,6 +402,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -381,6 +423,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -401,6 +446,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -420,6 +468,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -438,6 +489,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -491,6 +545,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="2">
@@ -509,6 +566,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -529,6 +589,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -547,6 +610,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -567,6 +633,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -585,6 +654,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -605,6 +677,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -624,6 +699,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="1">
@@ -642,6 +720,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -695,6 +776,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -713,6 +797,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -733,6 +820,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -751,6 +841,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -771,6 +864,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -789,6 +885,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -809,6 +908,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -828,6 +930,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -846,6 +951,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -899,6 +1007,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -917,6 +1028,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -937,6 +1051,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -955,6 +1072,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -975,6 +1095,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -993,6 +1116,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1013,6 +1139,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -1032,6 +1161,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -1050,6 +1182,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1103,6 +1238,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -1121,6 +1259,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1141,6 +1282,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -1159,6 +1303,12 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1179,6 +1329,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -1197,6 +1350,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1217,6 +1373,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -1236,6 +1395,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -1254,6 +1416,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1307,6 +1472,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -1325,6 +1493,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1345,6 +1516,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -1363,6 +1537,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1386,6 +1563,9 @@
            <property name="text">
             <string/>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -1404,6 +1584,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1424,6 +1607,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -1443,6 +1629,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -1461,6 +1650,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1514,6 +1706,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -1532,6 +1727,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1552,6 +1750,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -1570,6 +1771,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1590,6 +1794,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -1608,6 +1815,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1628,6 +1838,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -1647,6 +1860,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -1665,6 +1881,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1718,6 +1937,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
@@ -1736,6 +1958,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1756,6 +1981,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -1774,6 +2002,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1794,6 +2025,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
@@ -1812,6 +2046,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -1832,6 +2069,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -1851,6 +2091,9 @@
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -1869,6 +2112,9 @@
            </property>
            <property name="styleSheet">
             <string>font-size: 16px; text-align: center; padding: 7px;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
