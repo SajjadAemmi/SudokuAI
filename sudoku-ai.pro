@@ -39,8 +39,14 @@ FORMS += \
         mainwindow.ui
 
 RESOURCES += \
-        data/s6.txt \
+        data/s1.txt \
+        data/s2.txt \
+        data/s3.txt \
         data/s4.txt \
+        data/s5.txt \
+        data/s6.txt
+
+ICON = icon.icns
 
 
 # Default rules for deployment.

@@ -1,11 +1,11 @@
 #include <iostream>
-#include "unistd.h"
 #include "QFile"
 #include "QDir"
 #include "QtDebug"
 #include "QMessageBox"
 #include "QTextStream"
 #include "mainwindow.h"
+#include "time.h"
 
 
 using namespace std;
@@ -25,12 +25,18 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     }
 
     connect(ui->btn_solve, SIGNAL(clicked()), this, SLOT(solveGame()));
+    connect(ui->btn_new_game, SIGNAL(clicked()), this, SLOT(newGame()));
+
+    sudoku = new Sudoku();
+    connect(sudoku, SIGNAL(signalShowCell(int, int, int)), this, SLOT(slotShowCell(int, int, int)));
+    connect(sudoku, SIGNAL(signalHideCell(int, int)), this, SLOT(slotHideCell(int, int)));
+    connect(sudoku, SIGNAL(solved()), this, SLOT(updateBoard()));
+    connect(ui->cb_preview, SIGNAL(toggled(bool)), sudoku, SLOT(setPreview(bool)));
+
     this->newGame();
-    delay = 0.1;
+
     old_row = -1;
     old_col = -1;
-
-//    connect(sudoku, SIGNAL(signalHideCell(int, int)), this, SLOT(slotHideCell(int, int)));
 }
 
 
@@ -43,7 +49,9 @@ MainWindow::~MainWindow()
 void MainWindow::newGame()
 {
 //    QString dir = QDir::currentPath();
-    QFile file(":/data/s4.txt");
+    srand(time(0));
+    int r = rand() % 6 + 1;
+    QFile file(":/data/s" + QString::number(r) + ".txt");
 //    qDebug() << file_path;
 
     if(!file.open(QIODevice::ReadOnly)) {
@@ -59,27 +67,20 @@ void MainWindow::newGame()
 
         for (int j = 0; j < N; j++)
         {
-            temp[i][j] = fields[j].toInt();
-            this->tb[i][j]->setText(fields[j]);
+            sudoku->matrix[i][j] = fields[j].toInt();
         }
     }
-
+    updateBoard();
     file.close();
 }
 
 
 void MainWindow::solveGame()
 {
-    sudoku = new Sudoku(temp);
-//    connect(sudoku, SIGNAL(signalShowCell(int, int, int)), this, SLOT(slotShowCell(int, int, int)));
-    connect(sudoku, SIGNAL(signalTest()), this, SLOT(slotTest()));
+
     sudoku->start();
 }
 
-void MainWindow::slotTest()
-{
-
-}
 
 void MainWindow::slotShowCell(int row, int col, int num)
 {
@@ -91,7 +92,6 @@ void MainWindow::slotShowCell(int row, int col, int num)
     old_col = col;
     this->tb[row][col]->setText(QString::number(num));
     this->tb[row][col]->setStyleSheet("background-color: lightblue");
-    sleep(delay);
 }
 
 
@@ -99,5 +99,24 @@ void MainWindow::slotHideCell(int row, int col)
 {
     this->tb[row][col]->setStyleSheet("none");
     this->tb[row][col]->setText("");
-    sleep(delay);
+}
+
+
+void MainWindow::updateBoard()
+{
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if(sudoku->matrix[i][j] == 0)
+            {
+                this->tb[i][j]->setStyleSheet("background-color: darkgray");
+            }
+            else
+            {
+                this->tb[i][j]->setStyleSheet("none");
+            }
+            this->tb[i][j]->setText(QString::number(sudoku->matrix[i][j]));
+        }
+    }
 }

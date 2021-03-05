@@ -9,14 +9,18 @@
 
 class Sudoku : public QThread
 {
+    Q_OBJECT
 
 public:
-    Sudoku(int m[N][N]);
+    int matrix[N][N];
+    bool preview;
+    explicit Sudoku();
     ~Sudoku();
     void run();
     void sort();
     void degreeCalculation();
     bool heuristic(int &Row, int &Col);
+    bool solve();
     void set(int Row, int Col);
     void unSet(int Row, int Col);
     bool usedInRow(int Row, int num);
@@ -25,12 +29,14 @@ public:
     bool isSafe(int Row, int Col, int num);
 
 private:
-    int matrix[N][N];
-    bool solve();
+    float delay;
+
+public slots:
+   void setPreview(bool);
 
 signals:
-   void signalTest();
    void signalShowCell(int row, int col, int num);
    void signalHideCell(int row, int col);
+   void solved();
 
 };

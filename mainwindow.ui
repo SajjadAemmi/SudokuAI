@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>appicon.ico</normaloff>appicon.ico</iconset>
+    <normaloff>icon.icns</normaloff>icon.icns</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>

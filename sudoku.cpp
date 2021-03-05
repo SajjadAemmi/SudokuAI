@@ -13,15 +13,10 @@ struct DegreeHeuristic
 int NumOfZero = 0;
 
 
-Sudoku::Sudoku(int m[N][N])
+Sudoku::Sudoku()
 {
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            matrix[i][j] = m[i][j];
-        }
-    }
+    delay = 10;
+    preview = false;
 }
 
 
@@ -38,6 +33,7 @@ void Sudoku::run()
     if (solve() == true)
     {
         qDebug() << "solved";
+        emit solved();
     }
 
 //    else cout << "No solution exists" << endl;
@@ -164,6 +160,12 @@ void Sudoku::unSet(int Row, int Col)
 }
 
 
+void Sudoku::setPreview(bool b)
+{
+    preview = !preview;
+}
+
+
 bool Sudoku::solve()
 {
     int row, col;
@@ -176,15 +178,24 @@ bool Sudoku::solve()
         {
             set(row, col);
             matrix[row][col] = num;
-//            Q_EMIT(signalTest());
-//            signalShowCell(row, col, num);
+
+            if(preview)
+            {
+                msleep(delay);
+                emit signalShowCell(row, col, num);
+            }
 
             if (solve())
                 return true;
 
             unSet(row, col);
             matrix[row][col] = UNASSIGNED;
-//            emit signalHideCell(row, col);
+
+            if(preview)
+            {
+                msleep(delay);
+                emit signalHideCell(row, col);
+            }
         }
     }
     return false;
