@@ -16,19 +16,22 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void updateBoard();
 
 private:
     Ui::MainWindow *ui;
-    int matrix[N][N];
+    int init_matrix[N][N];
     QLineEdit *tb[N][N];
     Sudoku *sudoku;
     int old_row;
     int old_col;
+    clock_t start_time;
+    clock_t end_time;
 
 private slots:
     void newGame();
     void solveGame();
-    void updateBoard();
+    void solved();
     void slotShowCell(int row, int col, int num);
     void slotHideCell(int row, int col);
 };
