@@ -52,9 +52,9 @@ void MainWindow::newGame()
     srand(time(0));
     int r = rand() % 6 + 1;
     QFile file(":/data/s" + QString::number(r) + ".txt");
-//    qDebug() << file_path;
 
-    if(!file.open(QIODevice::ReadOnly)) {
+    if(!file.open(QIODevice::ReadOnly))
+    {
         QMessageBox::information(0, "error", file.errorString());
     }
 

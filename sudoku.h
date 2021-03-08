@@ -7,6 +7,12 @@
 #define N 9
 
 
+struct DegreeHeuristic
+{
+    int Row; int Col; int degree; int IsSet;
+};
+
+
 class Sudoku : public QThread
 {
     Q_OBJECT
@@ -30,6 +36,8 @@ public:
 
 private:
     float delay;
+    std::vector<DegreeHeuristic> DH;
+    int DH_size;
 
 public slots:
    void setPreview(bool);

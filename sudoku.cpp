@@ -5,13 +5,6 @@
 
 using namespace std;
 
-struct DegreeHeuristic
-{
-    int Row; int Col; int degree; int IsSet;
-}DH[100];
-
-int NumOfZero = 0;
-
 
 Sudoku::Sudoku()
 {
@@ -28,6 +21,7 @@ Sudoku::~Sudoku()
 
 void Sudoku::run()
 {
+    DH.clear();
     degreeCalculation();
 
     if (solve() == true)
@@ -35,17 +29,16 @@ void Sudoku::run()
         qDebug() << "solved";
         emit solved();
     }
-
-//    else cout << "No solution exists" << endl;
-
+    else
+        qDebug() << "No solution exists";
 }
 
 
 void Sudoku::sort()
 {
-    for (int i = 0; i < NumOfZero; i++)
+    for (int i = 0; i < DH_size; i++)
     {
-        for (int j = i + 1; j < NumOfZero; j++)
+        for (int j = i + 1; j < DH_size; j++)
         {
             if (DH[i].degree > DH[j].degree)
                 swap(DH[i], DH[j]);
@@ -61,9 +54,10 @@ void Sudoku::degreeCalculation()
     {
         for (int j = 0; j < N; j++)
         {
-            cntr = 0;
             if (matrix[i][j] == UNASSIGNED)
             {
+                cntr = 0;
+                DegreeHeuristic dh;
                 for (int k = 0; k < N; k++)
                 {
                     if (matrix[i][k] == UNASSIGNED && k != j)
@@ -85,30 +79,27 @@ void Sudoku::degreeCalculation()
                         }
                     }
                 }
-                DH[NumOfZero].degree = cntr;
-                DH[NumOfZero].Row = i;
-                DH[NumOfZero].Col = j;
-                NumOfZero++;
+                dh.degree = cntr;
+                dh.Row = i;
+                dh.Col = j;
+                dh.IsSet = 0;
+                DH.push_back(dh);
             }
         }
     }
-    for (int i = 0; i < NumOfZero; i++)
-    {
-        DH[i].IsSet = 0;
-    }
+    DH_size = DH.size();
     sort();
 }
 
 
 bool Sudoku::heuristic(int &Row, int &Col)
 {
-    for (int i = 0; i < NumOfZero; i++)
+    for (int i = 0; i < DH_size; i++)
     {
         if (DH[i].IsSet == 0)
         {
             Row = DH[i].Row;
             Col = DH[i].Col;
-
             return true;
         }
     }
@@ -118,13 +109,13 @@ bool Sudoku::heuristic(int &Row, int &Col)
 
 void Sudoku::set(int Row, int Col)
 {
-    for (int i = 0; i < NumOfZero; i++)
+    for (int i = 0; i < DH_size; i++)
     {
         if (Row == DH[i].Row && Col == DH[i].Col)
         {
             DH[i].IsSet = 1;
 
-            for (int j = 0; j < NumOfZero; j++)
+            for (int j = 0; j < DH_size; j++)
             {
                 if (DH[i].Row == DH[j].Row || DH[i].Col == DH[j].Col || (DH[i].Row / 3 == DH[j].Row / 3 && DH[i].Col / 3 == DH[j].Col / 3))
                 {
@@ -140,13 +131,13 @@ void Sudoku::set(int Row, int Col)
 
 void Sudoku::unSet(int Row, int Col)
 {
-    for (int i = 0; i < NumOfZero; i++)
+    for (int i = 0; i < DH_size; i++)
     {
         if (Row == DH[i].Row && Col == DH[i].Col)
         {
             DH[i].IsSet = 0;
 
-            for (int j = 0; j < NumOfZero; j++)
+            for (int j = 0; j < DH_size; j++)
             {
                 if (DH[i].Row == DH[j].Row || DH[i].Col == DH[j].Col || (DH[i].Row / 3 == DH[j].Row / 3 && DH[i].Col / 3 == DH[j].Col / 3))
                 {

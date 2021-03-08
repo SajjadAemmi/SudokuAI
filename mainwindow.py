@@ -1,7 +1,7 @@
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import QMainWindow
-from PySide2.QtUiTools import QUiLoader
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import QMainWindow
+from PySide6.QtUiTools import QUiLoader
 import random
 from sudoku import Sudoku
 import data
@@ -12,7 +12,6 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         
-        self.init_matrix = list()
         self.old_row, self.old_col = None, None
 
         loader = QUiLoader()
@@ -109,7 +108,6 @@ class MainWindow(QMainWindow):
         self.updateBoard()
 
     def solveGame(self):
-        self.run = True
         self.ui.progress_bar.setVisible(True)
         self.ui.lbl_time.setVisible(False)
 

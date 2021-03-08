@@ -1,4 +1,4 @@
-from PySide2.QtCore import QThread, Signal
+from PySide6.QtCore import QThread, Signal
 import time
 
 class Sudoku(QThread):
@@ -9,12 +9,13 @@ class Sudoku(QThread):
     def __init__(self):
         super(Sudoku, self).__init__()
         
-        self.matrix = list()
-        self.DH = []
+        self.matrix = None
+        self.DH = None
         self.delay = 0.05
         self.preview = False
 
     def run(self):
+        self.DH = []
         self.degreeCalculation()
         if self.Sudoku():
             print("Done!")
