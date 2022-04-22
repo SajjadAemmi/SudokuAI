@@ -16,6 +16,7 @@ class Sudoku(QThread):
         self.preview = False
 
     def run(self):
+        start_time = time.time()
         self.DH = []
         self.degreeCalculation()
         if self.Sudoku():
@@ -23,6 +24,8 @@ class Sudoku(QThread):
             self.signal_solved.emit()
         else:
             print("No solution exists")
+        end_time = time.time()
+        print("process time:", end_time - start_time, "s")
 
     def degreeCalculation(self):
         for i in range(9):

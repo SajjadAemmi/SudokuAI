@@ -1,11 +1,11 @@
 import random
-from .data import start_matrices
 import time
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import QMainWindow, QMessageBox
 from PySide6.QtUiTools import QUiLoader
 from source_python.sudoku import Sudoku
+from .data import start_matrices
 
 
 class MainWindow(QMainWindow):
