@@ -1,7 +1,7 @@
 import sys
 import os
 from PySide6.QtWidgets import QApplication
-from mainwindow import MainWindow
+from source_python.mainwindow import MainWindow
 
 
 os.environ["QT_MAC_WANTS_LAYER"] = "1"

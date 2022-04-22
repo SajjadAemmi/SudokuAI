@@ -1,11 +1,11 @@
+import random
+from .data import start_matrices
+import time
 from PySide6.QtCore import *
 from PySide6.QtGui import *
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QMessageBox
 from PySide6.QtUiTools import QUiLoader
-import random
-from sudoku import Sudoku
-import data
-import time
+from source_python.sudoku import Sudoku
 
 
 class MainWindow(QMainWindow):
@@ -96,7 +96,7 @@ class MainWindow(QMainWindow):
     def newGame(self):
         self.init_matrix = list()
         self.sudoku.matrix = list()
-        rows = random.choice(data.startMatrixs)
+        rows = random.choice(start_matrices)
 
         for row in rows:
             cells = "".join(row).split(' ')

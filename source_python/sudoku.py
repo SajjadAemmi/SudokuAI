@@ -1,5 +1,6 @@
-from PySide6.QtCore import QThread, Signal
 import time
+from PySide6.QtCore import QThread, Signal
+
 
 class Sudoku(QThread):
     signal_show_cell = Signal(object, object, object)
