@@ -9,7 +9,6 @@ class Sudoku(QThread):
 
     def __init__(self):
         super(Sudoku, self).__init__()
-        
         self.matrix = None
         self.DH = None
         self.delay = 0.05
@@ -98,10 +97,8 @@ class Sudoku(QThread):
     def Sudoku(self):
         try:
             flag, row, col = self.Heuristic()
-
             if not flag:
                 return True
-
             for num in range(1, 10):
                 if self.isSafe(row, col, num):
 
@@ -119,10 +116,7 @@ class Sudoku(QThread):
                     if self.preview:
                         time.sleep(self.delay)
                         self.signal_hide_cell.emit(row, col)
-
             return False
-
         except:
             print('some problem')
-
         return True

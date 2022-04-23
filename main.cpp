@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "mainwindow.h"
+#include "source_cpp/mainwindow.h"
 
 
 using namespace std;

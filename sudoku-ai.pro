@@ -27,12 +27,12 @@ CONFIG += \
         c++17
 
 HEADERS += \
-        mainwindow.h \
-        sudoku.h
+        source_cpp/mainwindow.h \
+        source_cpp/sudoku.h
 
 SOURCES += \
-        mainwindow.cpp \
-        sudoku.cpp \
+        source_cpp/mainwindow.cpp \
+        source_cpp/sudoku.cpp \
         main.cpp
 
 FORMS += \

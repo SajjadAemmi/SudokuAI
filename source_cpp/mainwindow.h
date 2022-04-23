@@ -1,7 +1,7 @@
 #include <fstream>
 #include <QMainWindow>
 #include "QLineEdit"
-#include <sudoku.h>
+#include <source_cpp/sudoku.h>
 #include "ui_mainwindow.h"
 
 

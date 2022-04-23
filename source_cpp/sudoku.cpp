@@ -1,6 +1,6 @@
 #include "iostream"
 #include "QtDebug"
-#include <sudoku.h>
+#include <source_cpp/sudoku.h>
 
 
 using namespace std;

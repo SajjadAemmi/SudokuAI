@@ -1,8 +1,6 @@
 import random
 import time
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import QMainWindow, QMessageBox
+from PySide6.QtWidgets import QMainWindow, QMessageBox, QFileDialog
 from PySide6.QtUiTools import QUiLoader
 from source_python.sudoku import Sudoku
 from .data import start_matrices
@@ -26,7 +24,7 @@ class MainWindow(QMainWindow):
 
         self.ui.menu_new_game.triggered.connect(self.newGame)
         self.ui.menu_open.triggered.connect(self.openFile)
-        self.ui.menu_exit.triggered.connect(exit)
+        self.ui.menu_exit.triggered.connect(self.exit)
         self.ui.menu_help_game.triggered.connect(self.help)
         self.ui.menu_about.triggered.connect(self.about)
 
@@ -44,6 +42,9 @@ class MainWindow(QMainWindow):
         self.newGame()
         self.ui.show()
 
+    def exit(self):
+        exit()
+    
     def setPreview(self):
         self.sudoku.preview = not self.sudoku.preview
 
@@ -52,7 +53,7 @@ class MainWindow(QMainWindow):
         del self.sudoku
 
     def openFile(self):
-        file_location = QFileDialog.getOpenFileName(self, caption="Open File", directory=".", filter="*.txt")[0]
+        file_location = QFileDialog.getOpenFileName(self, caption="Open File", dir=".", filter="*.txt")[0]
 
         rows = open(file_location, 'r').read().split('\n')
         if len(rows) != 9:

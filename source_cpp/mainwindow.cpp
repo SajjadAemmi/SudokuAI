@@ -4,7 +4,7 @@
 #include "QtDebug"
 #include "QMessageBox"
 #include "QTextStream"
-#include "mainwindow.h"
+#include "source_cpp/mainwindow.h"
 #include "time.h"
 
 
