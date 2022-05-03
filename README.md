@@ -7,7 +7,7 @@ Sudoku Solver using Constraint Satisfaction Problem **(CSP)** solutions and Back
 ## Python
 The python version of this program uses the [pyside6](https://wiki.qt.io/Qt_for_Python) library to design the user interface.
 
-![Screen Shot](assets/ScreenShot.png)
+<img src="assets/ScreenShot.png" alt="ScreenShot" width="400"/>
 
 |   | Process time |
 | - | ------------ |
@@ -33,4 +33,5 @@ python main.py
 ## ToDo
 - [x] C++
 - [x] Python
+- [x] C#
 - [ ] javaScript

@@ -5,7 +5,7 @@ from PySide6.QtCore import QThread, Signal
 class Sudoku(QThread):
     signal_show_cell = Signal(object, object, object)
     signal_hide_cell = Signal(object, object)
-    signal_solved = Signal()
+    signal_solved = Signal(object, object)
 
     def __init__(self):
         super(Sudoku, self).__init__()
@@ -20,11 +20,12 @@ class Sudoku(QThread):
         self.degreeCalculation()
         if self.Sudoku():
             print("Done!")
-            self.signal_solved.emit()
+            status = True
         else:
             print("No solution exists")
+            status = False
         end_time = time.time()
-        print("process time:", end_time - start_time, "s")
+        self.signal_solved.emit(status, end_time - start_time)
 
     def degreeCalculation(self):
         for i in range(9):

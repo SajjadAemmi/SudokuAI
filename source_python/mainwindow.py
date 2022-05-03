@@ -15,6 +15,7 @@ class MainWindow(QMainWindow):
 
         loader = QUiLoader()
         self.ui = loader.load('mainwindow.ui')
+        self.ui.setFixedSize(326,517)
 
         self.board = [[None for _ in range(9)] for _ in range(9)]
         self.ui.progress_bar.setVisible(False)
@@ -54,28 +55,32 @@ class MainWindow(QMainWindow):
         del self.sudoku
 
     def openFile(self):
-        file_location = QFileDialog.getOpenFileName(self, caption="Open File", dir=".", filter="*.txt")[0]
+        self.init_matrix = list()
+        self.sudoku.matrix = list()
+        
+        try:
+            file_location = QFileDialog.getOpenFileName(self, caption="Open File", dir=".", filter="*.txt")[0]
+            rows = open(file_location, 'r').read().split('\n')
+            if len(rows) != 9:
+                raise Exception
+            for row in rows:
+                cells = row.split(' ')
+                if len(cells) != 9 or any(cell not in ['0','1','2','3','4','5','6','7','8','9'] for cell in cells):
+                    raise Exception
 
-        rows = open(file_location, 'r').read().split('\n')
-        if len(rows) != 9:
+                self.init_matrix.append(list(map(int, cells)))
+                self.sudoku.matrix.append(list(map(int, cells)))
+        
+            self.ui.progress_bar.setVisible(False)
+            self.ui.lbl_time.setVisible(False)
+            self.updateBoard()
+
+        except:
             msgbox = QMessageBox()
             msgbox.setWindowTitle('Error')
             msgbox.setText('File is invalid')
             msgbox.exec_()
             return
-
-        self.matrix = list()
-        for row in rows:
-            cells = row.split(' ')
-            if len(cells) != 9 or any(cell not in ['0','1','2','3','4','5','6','7','8','9'] for cell in cells):
-                msgbox = QMessageBox()
-                msgbox.setWindowTitle('Error')
-                msgbox.setText('File is invalid')
-                msgbox.exec_()
-                return
-            self.matrix.append(cells)
-
-        self.updateBoard()
 
     def help(self):
         msgbox = QMessageBox()
@@ -108,20 +113,20 @@ class MainWindow(QMainWindow):
         self.ui.progress_bar.setVisible(False)
         self.ui.lbl_time.setVisible(False)
         self.updateBoard()
-
+    
     def solveGame(self):
         self.ui.progress_bar.setVisible(True)
         self.ui.lbl_time.setVisible(False)
 
-        self.start_time = time.time()
         self.sudoku.start()
 
-    def solved(self):
-        self.end_time = time.time()
-        self.ui.lbl_time.setText(str("%.4f" % (self.end_time - self.start_time)) + " seconds")
+    def solved(self, status, process_time):
+        print("Process time:", process_time, "s")
+        self.ui.lbl_time.setText(str("Process time: " + "%.4f"%(process_time)) + " s")
         self.ui.progress_bar.setVisible(False)
         self.ui.lbl_time.setVisible(True)
-        self.updateBoard()
+        if status:
+            self.updateBoard()
         
     def showCell(self, row, col, num):
         if self.old_row != None and self.old_col != None:
@@ -153,7 +158,7 @@ class MainWindow(QMainWindow):
     def check(self):
         for i in range(9):
             for j in range(9):
-                if self.matrix[i][j] == '0':
+                if str(self.sudoku.matrix[i][j]) == '0':
                     self.board[i][j].setStyleSheet('none')
                 else:
                     self.board[i][j].setStyleSheet('background-color: lightgray')

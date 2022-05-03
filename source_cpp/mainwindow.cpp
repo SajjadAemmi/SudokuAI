@@ -15,6 +15,7 @@ int temp[N][N];
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setFixedSize(QSize(326,517));
 
     for (int i = 0; i < N; i++)
     {
