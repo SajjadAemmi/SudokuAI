@@ -1,5 +1,6 @@
 import random
 import time
+from PySide6.QtCore import QCoreApplication
 from PySide6.QtWidgets import QMainWindow, QMessageBox, QFileDialog
 from PySide6.QtUiTools import QUiLoader
 from source_python.sudoku import Sudoku
@@ -43,7 +44,7 @@ class MainWindow(QMainWindow):
         self.ui.show()
 
     def exit(self):
-        exit()
+        QCoreApplication.exit(0)
     
     def setPreview(self):
         self.sudoku.preview = not self.sudoku.preview

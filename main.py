@@ -9,4 +9,4 @@ os.environ["QT_MAC_WANTS_LAYER"] = "1"
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
-    app.exec()
+    sys.exit(app.exec())
