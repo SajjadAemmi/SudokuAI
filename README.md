@@ -1,4 +1,6 @@
-# Sudoku-AI
+# SudokuAI
+
+[![Python application](https://github.com/SajjadAemmi/SudokuAI/actions/workflows/python-app.yml/badge.svg)](https://github.com/SajjadAemmi/SudokuAI/actions/workflows/python-app.yml)
 
 Sudoku Solver using Constraint Satisfaction Problem **(CSP)** solutions and BackTracking.
 
